@@ -87,6 +87,36 @@ public class Deck {
 	// that perfectly interweaves the two halves of the deck
 	public void perfectShuffle() {
 		// YOUR CODE HERE
+		//create new empty arraylist
+		ArrayList<Card> shuffledcards = new ArrayList<>();
+		//create two arraylists, one is the first half of cardslist,
+		ArrayList<Card> firsthalf = new ArrayList<>();
+		for(int i = 0; i<size/2; i++){
+			firsthalf.add(cardsList.get(i));
+		}
+		//second half
+		ArrayList<Card> secondhalf = new ArrayList<>();
+		for(int i = size/2; i<size; i++){
+			secondhalf.add(cardsList.get(i));
+		}
+		//adding them together
+		int fh = 0;
+		int sh = 0;
+		for(int i = 0; i< size; i++){
+
+			if(i%2!=1){
+				shuffledcards.add(firsthalf.get(fh));
+				fh ++;
+			}
+			else {
+				shuffledcards.add(secondhalf.get(sh));
+				sh++;
+			}
+		}
+		// and the other is the second half of cardslist. Then just have a loop
+		//and on every even value you add a card from the first arraylist, and
+		//on every odd value, you add a card from the second arraylist.
+		cardsList = shuffledcards;
 	}
 
 
